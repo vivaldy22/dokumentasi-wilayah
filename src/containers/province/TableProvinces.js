@@ -34,7 +34,18 @@ const TableProvinces = ({ provinces, setDistrictsData, search }) => {
       <Table.Row>
         <Table.Cell className="center">{i + 1}</Table.Cell>
         <Table.Cell selectable>
-          <ShowDetail selName={prov.name} button={<a>{prov.name}</a>} />
+          <ShowDetail
+            selName={prov.name}
+            button={
+              <a
+                onClick={() => {
+                  loadDistricts(prov.id);
+                }}
+              >
+                {prov.name}
+              </a>
+            }
+          />
         </Table.Cell>
         <Table.Cell className="center">
           <ShowDetail
