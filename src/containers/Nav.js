@@ -62,30 +62,28 @@ const Nav = (props) => {
   });
 
   return (
-    <div>
-      <div className="background-image-home">
-        <Navbar onLogout={onLogout} auth={auth} />
-        <Switch>
-          <Route
-            path="/"
-            exact
-            render={(props) => {
-              if (sessionStorage.getItem("auth") === "loggedIn") {
-                onLogin();
-              } else {
-                return <LoginPage onLogin={onLogin} />;
-              }
-            }}
-          />
-          {routeList}
-          <Route
-            path="*"
-            render={(props) => {
-              return <NotFound />;
-            }}
-          />
-        </Switch>
-      </div>
+    <div className="background-image-home">
+      <Navbar data-test="navbar-component" onLogout={onLogout} auth={auth} />
+      <Switch>
+        <Route
+          path="/"
+          exact
+          render={(props) => {
+            if (sessionStorage.getItem("auth") === "loggedIn") {
+              onLogin();
+            } else {
+              return <LoginPage onLogin={onLogin} />;
+            }
+          }}
+        />
+        {routeList}
+        <Route
+          path="*"
+          render={(props) => {
+            return <NotFound />;
+          }}
+        />
+      </Switch>
     </div>
   );
 };

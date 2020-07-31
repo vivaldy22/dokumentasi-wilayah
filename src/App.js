@@ -5,9 +5,9 @@ import Nav from "./containers/Nav";
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Nav />
+    <div data-test="app-component">
+      <BrowserRouter data-test="browser-router">
+        <Nav data-test="nav-component" />
       </BrowserRouter>
     </div>
   );
