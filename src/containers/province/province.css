@@ -1,0 +1,25 @@
+.table-container {
+  padding-left: 30vh;
+  padding-right: 30vh;
+  padding-top: 3vh;
+}
+
+.table-no {
+  width: 50px;
+}
+
+.table-actions {
+  width: 50px;
+}
+
+.input-search {
+  text-align: center;
+}
+
+.search {
+  width: 500px;
+}
+
+.center {
+  text-align: center !important;
+}
