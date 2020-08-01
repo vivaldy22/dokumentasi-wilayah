@@ -1,32 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { getProvince } from "../../api/api";
+import { useDispatch } from "react-redux";
 import LoadingPage from "../../components/LoadingPage";
 import TableProvinces from "./TableProvinces";
 import "./province.css";
 import { Input } from "semantic-ui-react";
+import { fetchProvinces } from "../../redux/actions/actions";
 
-const ProvincePage = (props) => {
-  const { setProvincesData } = props;
+const ProvincePage = () => {
   const token = sessionStorage.getItem("token");
+
+  const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
 
-  const loadData = () => {
-    getProvince(token)
-      .then((res) => {
-        if (res.code == 200) {
-          setProvincesData(res.data);
-          setIsLoaded(true);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+  const loadData = async () => {
+    await dispatch(fetchProvinces(token));
+    await setIsLoaded(true);
   };
 
   useEffect(() => {
-    loadData();
+    loadData().then();
   }, []);
 
   const handleChange = (e) => {
@@ -60,12 +53,4 @@ const ProvincePage = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setProvincesData: (provinces) => {
-      dispatch({ type: "SET_PROVINCES", provinces });
-    },
-  };
-};
-
-export default connect(null, mapDispatchToProps)(ProvincePage);
+export default ProvincePage;

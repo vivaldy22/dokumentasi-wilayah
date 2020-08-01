@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputLogin from "../../components/InputLogin";
 import "./loginPage.css";
 import {
@@ -10,7 +10,6 @@ import {
   FormControl,
 } from "@material-ui/core";
 import mySwal from "../../components/MySwal";
-import { getToken } from "../../api/api";
 
 const regexEmail = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
 

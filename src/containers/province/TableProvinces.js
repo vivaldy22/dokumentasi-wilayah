@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Button, Icon, Table } from "semantic-ui-react";
-import { connect } from "react-redux";
+import { Button, Table } from "semantic-ui-react";
+import { useDispatch, useSelector } from "react-redux";
 import ShowDetail from "./ShowDetail";
-import { getDistricts } from "../../api/api";
+import { fetchDistricts } from "../../redux/actions/actions";
 
-const TableProvinces = ({ provinces, setDistrictsData, search }) => {
+const TableProvinces = ({ setDistrictsData, search }) => {
   const token = sessionStorage.getItem("token");
+
+  const provinces = useSelector((state) => state.province.provinces);
+  const dispatch = useDispatch();
   const [filtered, setFiltered] = useState(provinces);
 
   const loadDistricts = (id) => {
-    getDistricts(token, id)
-      .then((res) => {
-        if (res.code == 200) {
-          setDistrictsData(res.data);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    dispatch(fetchDistricts(token, id));
   };
 
   useEffect(() => {
@@ -88,18 +83,4 @@ const TableProvinces = ({ provinces, setDistrictsData, search }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    provinces: state.province.provinces,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setDistrictsData: (districts) => {
-      dispatch({ type: "SET_DISTRICTS", districts });
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TableProvinces);
+export default TableProvinces;
