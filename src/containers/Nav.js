@@ -4,9 +4,10 @@ import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import ProvincePage from "./province/ProvincePage";
 import Navbar from "../components/Navbar";
 import LoginPage from "./login/LoginPage";
-import NotFound from "./NotFound";
+import NotFound from "../components/NotFound";
 import HomePage from "./HomePage";
 import { getToken } from "../api/api";
+import InternalServerError from "../components/InternalServerError";
 
 const routes = [
   { id: 1, path: "/home", component: HomePage },
@@ -30,14 +31,18 @@ const Nav = (props) => {
   const onLogin = () => {
     getToken()
       .then((res) => {
-        setAuth(true);
-        sessionStorage.setItem("token", res.token);
-        props.history.push({
-          pathname: "/home",
-        });
+        if (res.code == 200) {
+          setAuth(true);
+          sessionStorage.setItem("token", res.token);
+          props.history.push({
+            pathname: "/home",
+          });
+        }
       })
       .catch((e) => {
-        console.log(e);
+        props.history.push({
+          pathname: "/oops",
+        });
       });
   };
 
@@ -77,6 +82,12 @@ const Nav = (props) => {
           }}
         />
         {routeList}
+        <Route
+          path="/oops"
+          render={(props) => {
+            return <InternalServerError />;
+          }}
+        />
         <Route
           path="*"
           render={(props) => {

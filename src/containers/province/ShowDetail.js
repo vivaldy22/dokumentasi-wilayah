@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import MyModal from "../../components/MyModal";
 import { connect } from "react-redux";
 import { getSubDistricts, getVillage } from "../../api/api";

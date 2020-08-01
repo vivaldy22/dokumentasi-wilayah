@@ -1,5 +1,4 @@
 import { shallow } from "enzyme";
-import InputLogin from "../components/InputLogin";
 import React from "react";
 import HomePage from "../containers/HomePage";
 

@@ -13,7 +13,6 @@ const TableProvinces = ({ provinces, setDistrictsData, search }) => {
       .then((res) => {
         if (res.code == 200) {
           setDistrictsData(res.data);
-          console.log(res.data);
         }
       })
       .catch((e) => {
