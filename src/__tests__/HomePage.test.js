@@ -9,10 +9,10 @@ const findByTag = (wrapper, val) => {
 describe("<HomePage/>", () => {
   const wrapper = shallow(<HomePage />);
 
-  it("should call 1 <Segment/>", () => {
-    const segmentComponent = findByTag(wrapper, "Segment");
+  it("should call 1 <SegmentContainer/>", () => {
+    const segmentComponent = findByTag(wrapper, "SegmentContainer");
     expect(segmentComponent.length).toBe(1);
   });
 
-  it("should call 1 <Container/>", function () {});
+  // it("should call 1 <Container/>", function () {});
 });
