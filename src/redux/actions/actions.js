@@ -13,7 +13,7 @@ const fetchProvinces = (token) => {
       }
     })
     .catch((e) => {
-      console.log(e);
+      throw e;
     });
 };
 
@@ -25,7 +25,7 @@ const fetchDistricts = (token, id) => {
       }
     })
     .catch((e) => {
-      console.log(e);
+      throw e;
     });
 };
 
@@ -37,7 +37,7 @@ const fetchSubDistricts = (token, value) => {
       }
     })
     .catch((e) => {
-      console.log(e);
+      throw e;
     });
 };
 
@@ -49,7 +49,7 @@ const fetchVillages = (token, value) => {
       }
     })
     .catch((e) => {
-      console.log(e);
+      throw e;
     });
 };
 
