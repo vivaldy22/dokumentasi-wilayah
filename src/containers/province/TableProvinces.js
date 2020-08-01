@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Icon, Table } from "semantic-ui-react";
+import { Button, Table } from "semantic-ui-react";
 import { connect } from "react-redux";
 import ShowDetail from "./ShowDetail";
 import { getDistricts } from "../../api/api";
@@ -16,7 +16,7 @@ const TableProvinces = ({ provinces, setDistrictsData, search }) => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        throw e;
       });
   };
 

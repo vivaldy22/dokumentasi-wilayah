@@ -43,6 +43,7 @@ const Nav = (props) => {
         props.history.push({
           pathname: "/oops",
         });
+        throw e;
       });
   };
 

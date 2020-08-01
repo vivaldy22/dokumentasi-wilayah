@@ -22,7 +22,7 @@ const ShowDetail = ({
         }
       })
       .catch((e) => {
-        console.log(e);
+        throw e;
       });
   };
 
@@ -34,7 +34,7 @@ const ShowDetail = ({
         }
       })
       .catch((e) => {
-        console.log(e);
+        throw e;
       });
   };
 

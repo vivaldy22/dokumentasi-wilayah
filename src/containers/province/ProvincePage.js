@@ -21,7 +21,7 @@ const ProvincePage = (props) => {
         }
       })
       .catch((e) => {
-        console.log(e);
+        throw e;
       });
   };
 
