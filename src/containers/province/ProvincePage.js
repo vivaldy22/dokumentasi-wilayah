@@ -4,7 +4,7 @@ import LoadingPage from "../../components/LoadingPage";
 import TableProvinces from "./TableProvinces";
 import "./province.css";
 import { Input } from "semantic-ui-react";
-import { fetchProvinces } from "../../redux/actions/actions";
+import { fetchProvinces } from "../../redux/actions";
 
 const ProvincePage = () => {
   const token = sessionStorage.getItem("token");

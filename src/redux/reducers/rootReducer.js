@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { province } from "./province/ProvinceReducer";
-import { district } from "./district/DistrictReducer";
-import { subDistrict } from "./subdistrict/SubDistrictReducer";
-import { village } from "./village/VillageReducer";
+import { province } from "./province";
+import { district } from "./district";
+import { subDistrict } from "./subdistrict";
+import { village } from "./village";
 
 export const rootReducer = combineReducers({
   province,

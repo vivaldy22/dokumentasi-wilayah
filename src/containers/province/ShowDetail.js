@@ -1,7 +1,7 @@
 import React from "react";
 import MyModal from "../../components/MyModal";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSubDistricts, fetchVillages } from "../../redux/actions/actions";
+import { fetchSubDistricts, fetchVillages } from "../../redux/actions";
 
 const ShowDetail = ({ button, selName }) => {
   const token = sessionStorage.getItem("token");

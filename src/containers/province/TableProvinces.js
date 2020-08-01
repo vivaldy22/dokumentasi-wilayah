@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Table } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import ShowDetail from "./ShowDetail";
-import { fetchDistricts } from "../../redux/actions/actions";
+import { fetchDistricts } from "../../redux/actions";
 
 const TableProvinces = ({ setDistrictsData, search }) => {
   const token = sessionStorage.getItem("token");
