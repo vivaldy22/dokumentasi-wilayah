@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseURL = "https://x.rajaapi.com";
-const baseGET = `https://x.rajaapi.com/MeP7c5ne`;
+const baseGET = `${baseURL}/MeP7c5ne`;
 
 export const getToken = async () => {
   const res = await axios.get(baseURL + "/poe");
