@@ -19,7 +19,7 @@ const ProvincePage = () => {
   };
 
   useEffect(() => {
-    loadData().then();
+    loadData();
   }, []);
 
   const handleChange = (e) => {
@@ -48,7 +48,7 @@ const ProvincePage = () => {
           onChange={handleChange}
         />
       </div>
-      <TableProvinces search={search} />
+      <TableProvinces isLoaded={isLoaded} search={search} />
     </div>
   );
 };

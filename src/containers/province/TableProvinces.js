@@ -3,8 +3,9 @@ import { Button, Table } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import ShowDetail from "./ShowDetail";
 import { fetchDistricts } from "../../redux/actions";
+import LoadingPage from "../../components/LoadingPage";
 
-const TableProvinces = ({ setDistrictsData, search }) => {
+const TableProvinces = ({ isLoaded, search }) => {
   const token = sessionStorage.getItem("token");
 
   const provinces = useSelector((state) => state.province.provinces);
@@ -21,7 +22,7 @@ const TableProvinces = ({ setDistrictsData, search }) => {
         return prov.name.toLowerCase().includes(search.toLowerCase());
       })
     );
-  }, [search]);
+  }, [provinces, search]);
 
   const showTableContent = filtered.map((prov, i) => {
     return (
@@ -59,6 +60,10 @@ const TableProvinces = ({ setDistrictsData, search }) => {
       </Table.Row>
     );
   });
+
+  if (!isLoaded) {
+    return <LoadingPage />;
+  }
 
   return (
     <div className="table-container">
