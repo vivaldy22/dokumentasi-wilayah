@@ -13,9 +13,9 @@ const ProvincePage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
 
-  const loadData = async () => {
-    await dispatch(fetchProvinces(token));
-    await setIsLoaded(true);
+  const loadData = () => {
+    dispatch(fetchProvinces(token));
+    setIsLoaded(true);
   };
 
   useEffect(() => {
