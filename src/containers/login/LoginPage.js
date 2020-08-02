@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import mySwal from "../../components/MySwal";
 
-const regexEmail = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
+// const regexEmail = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
 
 const LoginPage = (props) => {
   const initialStateUserInput = {
@@ -27,7 +27,7 @@ const LoginPage = (props) => {
     if (sessionStorage.getItem("token") !== null) {
       props.onLogin();
     }
-  });
+  }, []);
 
   const handleChange = (e) => {
     setUserInput({

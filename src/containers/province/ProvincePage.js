@@ -13,14 +13,10 @@ const ProvincePage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
 
-  const loadData = () => {
+  useEffect(() => {
     dispatch(fetchProvinces());
     setIsLoaded(true);
-  };
-
-  useEffect(() => {
-    loadData();
-  }, []);
+  }, [dispatch]);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -31,14 +27,7 @@ const ProvincePage = () => {
   }
 
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        paddingTop: "20px",
-        background: "rgba(0,0,0,0.2)",
-        maxHeight: "100%",
-      }}
-    >
+    <div className="background-table-container">
       <div className="input-search">
         <Input
           className="search"

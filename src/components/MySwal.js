@@ -1,17 +1,15 @@
 import Swal from "sweetalert2";
 
-const mySwal = (props) => {
-  const {
-    title,
-    text,
-    icon,
-    confirmColor,
-    confirmText,
-    allowOutsideClick,
-    doNext,
-    showCancel,
-  } = props;
-
+const mySwal = ({
+  title,
+  text,
+  icon,
+  confirmColor,
+  confirmText,
+  allowOutsideClick,
+  doNext,
+  showCancel,
+}) => {
   Swal.fire({
     title: title,
     text: text,

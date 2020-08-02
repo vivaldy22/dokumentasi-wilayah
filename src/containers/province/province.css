@@ -4,6 +4,15 @@
   padding-top: 3vh;
 }
 
+.background-table-container {
+  padding-top: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  top: 53px;
+  bottom: 0;
+  min-height: 93vh;
+  min-width: 100vw;
+}
+
 .table-no {
   width: 50px;
 }

@@ -6,7 +6,6 @@ import Navbar from "../components/Navbar";
 import LoginPage from "./login/LoginPage";
 import NotFound from "../components/NotFound";
 import HomePage from "./HomePage";
-import { getToken } from "../api/api";
 import InternalServerError from "../components/InternalServerError";
 
 const routes = [
@@ -63,7 +62,7 @@ const Nav = (props) => {
         <Route
           path="/"
           exact
-          render={(props) => {
+          render={() => {
             if (sessionStorage.getItem("token") === "token") {
               onLogin();
             } else {
@@ -74,13 +73,13 @@ const Nav = (props) => {
         {routeList}
         <Route
           path="/oops"
-          render={(props) => {
+          render={() => {
             return <InternalServerError />;
           }}
         />
         <Route
           path="*"
-          render={(props) => {
+          render={() => {
             return <NotFound />;
           }}
         />

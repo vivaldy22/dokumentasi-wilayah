@@ -4,7 +4,6 @@ const baseURL = "https://dev.farizdotid.com/api/daerahindonesia";
 
 export const getProvince = async () => {
   const res = await axios.get(`${baseURL}/provinsi`);
-  console.log(res);
   return await res.data;
 };
 

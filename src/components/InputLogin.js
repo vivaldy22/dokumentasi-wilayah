@@ -1,17 +1,15 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
 
-const InputLogin = (props) => {
-  const {
-    onTextChange,
-    onKeyPress,
-    placeholder,
-    type,
-    name,
-    valid,
-    value,
-  } = props;
-
+const InputLogin = ({
+  onTextChange,
+  onKeyPress,
+  placeholder,
+  type,
+  name,
+  valid,
+  value,
+}) => {
   return (
     <div className="input-text">
       <TextField

@@ -5,52 +5,50 @@ import {
   getVillage,
 } from "../../api/api";
 
-const fetchProvinces = (token) => {
+const fetchProvinces = () => {
   return async (dispatch) => {
     try {
-      const res = await getProvince(token);
-      if (res.code == 200) {
-        await dispatch({ type: "SET_PROVINCES", provinces: res.data });
-      }
+      const res = await getProvince();
+      await dispatch({ type: "SET_PROVINCES", provinces: res.provinsi });
     } catch (e) {
       throw e;
     }
   };
 };
 
-const fetchDistricts = (token, id) => {
+const fetchDistricts = (id) => {
   return async (dispatch) => {
     try {
-      const res = await getDistricts(token, id);
-      if (res.code == 200) {
-        await dispatch({ type: "SET_DISTRICTS", districts: res.data });
-      }
+      const res = await getDistricts(id);
+      await dispatch({
+        type: "SET_DISTRICTS",
+        districts: res.kota_kabupaten,
+      });
     } catch (e) {
       throw e;
     }
   };
 };
 
-const fetchSubDistricts = (token, value) => {
+const fetchSubDistricts = (value) => {
   return async (dispatch) => {
     try {
-      const res = await getSubDistricts(token, value);
-      if (res.code == 200) {
-        await dispatch({ type: "SET_SUBDISTRICTS", subDistricts: res.data });
-      }
+      const res = await getSubDistricts(value);
+      await dispatch({
+        type: "SET_SUBDISTRICTS",
+        subDistricts: res.kecamatan,
+      });
     } catch (e) {
       throw e;
     }
   };
 };
 
-const fetchVillages = (token, value) => {
+const fetchVillages = (value) => {
   return async (dispatch) => {
     try {
-      const res = await getVillage(token, value);
-      if (res.code == 200) {
-        await dispatch({ type: "SET_VILLAGES", villages: res.data });
-      }
+      const res = await getVillage(value);
+      await dispatch({ type: "SET_VILLAGES", villages: res.kelurahan });
     } catch (e) {
       throw e;
     }

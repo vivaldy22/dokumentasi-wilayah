@@ -26,7 +26,7 @@ const TableProvinces = ({ isLoaded, search }) => {
 
   const showTableContent = filtered.map((prov, i) => {
     return (
-      <Table.Row>
+      <Table.Row key={prov.id}>
         <Table.Cell className="center">{i + 1}</Table.Cell>
         <Table.Cell selectable>
           <ShowDetail

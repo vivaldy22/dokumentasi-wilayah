@@ -2,13 +2,11 @@ import React from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
-const Navbar = (props) => {
-  const { onLogout, auth } = props;
-
+const Navbar = ({ onLogout, auth }) => {
   return (
     <div style={{ backgroundColor: "white" }}>
       {auth ? (
-        <Menu attached="top" tabular size="massive" color="orange">
+        <Menu attached="top" size="massive" color="orange" pointing secondary>
           <Menu.Item as={NavLink} to="/home" name="home">
             <Icon name="home" />
             Home
