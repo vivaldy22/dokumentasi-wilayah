@@ -29,22 +29,11 @@ const Nav = (props) => {
   }, []);
 
   const onLogin = () => {
-    getToken()
-      .then((res) => {
-        if (res.code == 200) {
-          setAuth(true);
-          sessionStorage.setItem("token", res.token);
-          props.history.push({
-            pathname: "/home",
-          });
-        }
-      })
-      .catch((e) => {
-        props.history.push({
-          pathname: "/oops",
-        });
-        throw e;
-      });
+    setAuth(true);
+    sessionStorage.setItem("token", "token");
+    props.history.push({
+      pathname: "/home",
+    });
   };
 
   const onLogout = () => {
@@ -75,7 +64,7 @@ const Nav = (props) => {
           path="/"
           exact
           render={(props) => {
-            if (sessionStorage.getItem("auth") === "loggedIn") {
+            if (sessionStorage.getItem("token") === "token") {
               onLogin();
             } else {
               return <LoginPage onLogin={onLogin} />;

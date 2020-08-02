@@ -7,14 +7,14 @@ import { Input } from "semantic-ui-react";
 import { fetchProvinces } from "../../redux/actions";
 
 const ProvincePage = () => {
-  const token = sessionStorage.getItem("token");
+  // const token = sessionStorage.getItem("token");
 
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const [search, setSearch] = useState("");
 
   const loadData = () => {
-    dispatch(fetchProvinces(token));
+    dispatch(fetchProvinces());
     setIsLoaded(true);
   };
 

@@ -6,20 +6,20 @@ import { fetchDistricts } from "../../redux/actions";
 import LoadingPage from "../../components/LoadingPage";
 
 const TableProvinces = ({ isLoaded, search }) => {
-  const token = sessionStorage.getItem("token");
+  // const token = sessionStorage.getItem("token");
 
   const provinces = useSelector((state) => state.province.provinces);
   const dispatch = useDispatch();
   const [filtered, setFiltered] = useState(provinces);
 
   const loadDistricts = (id) => {
-    dispatch(fetchDistricts(token, id));
+    dispatch(fetchDistricts(id));
   };
 
   useEffect(() => {
     setFiltered(
       provinces.filter((prov) => {
-        return prov.name.toLowerCase().includes(search.toLowerCase());
+        return prov.nama.toLowerCase().includes(search.toLowerCase());
       })
     );
   }, [provinces, search]);
@@ -30,21 +30,21 @@ const TableProvinces = ({ isLoaded, search }) => {
         <Table.Cell className="center">{i + 1}</Table.Cell>
         <Table.Cell selectable>
           <ShowDetail
-            selName={prov.name}
+            selName={prov.nama}
             button={
               <a
                 onClick={() => {
                   loadDistricts(prov.id);
                 }}
               >
-                {prov.name}
+                {prov.nama}
               </a>
             }
           />
         </Table.Cell>
         <Table.Cell className="center">
           <ShowDetail
-            selName={prov.name}
+            selName={prov.nama}
             button={
               <Button
                 color="orange"

@@ -1,35 +1,24 @@
 import axios from "axios";
 
-const baseURL = "https://x.rajaapi.com";
-const baseGET = `${baseURL}/MeP7c5ne`;
+const baseURL = "https://dev.farizdotid.com/api/daerahindonesia";
 
-export const getToken = async () => {
-  const res = await axios.get(baseURL + "/poe");
+export const getProvince = async () => {
+  const res = await axios.get(`${baseURL}/provinsi`);
+  console.log(res);
   return await res.data;
 };
 
-export const getProvince = async (token) => {
-  const res = await axios.get(baseGET + token + "/m/wilayah/provinsi");
+export const getDistricts = async (idProv) => {
+  const res = await axios.get(`${baseURL}/kota?id_provinsi=${idProv}`);
   return await res.data;
 };
 
-export const getDistricts = async (token, idProv) => {
-  const res = await axios.get(
-    baseGET + token + `/m/wilayah/kabupaten?idpropinsi=${idProv}`
-  );
+export const getSubDistricts = async (idDist) => {
+  const res = await axios.get(`${baseURL}/kecamatan?id_kota=${idDist}`);
   return await res.data;
 };
 
-export const getSubDistricts = async (token, idDist) => {
-  const res = await axios.get(
-    baseGET + token + `/m/wilayah/kecamatan?idkabupaten=${idDist}`
-  );
-  return await res.data;
-};
-
-export const getVillage = async (token, idSubDist) => {
-  const res = await axios.get(
-    baseGET + token + `/m/wilayah/kelurahan?idkecamatan=${idSubDist}`
-  );
+export const getVillage = async (idSubDist) => {
+  const res = await axios.get(`${baseURL}/kelurahan?id_kecamatan=${idSubDist}`);
   return await res.data;
 };

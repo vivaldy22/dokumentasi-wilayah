@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchSubDistricts, fetchVillages } from "../../redux/actions";
 
 const ShowDetail = ({ button, selName }) => {
-  const token = sessionStorage.getItem("token");
+  // const token = sessionStorage.getItem("token");
 
   const districts = useSelector((state) => state.district.districts);
   const subDistricts = useSelector((state) => state.subDistrict.subDistricts);
@@ -12,28 +12,28 @@ const ShowDetail = ({ button, selName }) => {
   const dispatch = useDispatch();
 
   const handleDistChange = (e, { value }) => {
-    dispatch(fetchSubDistricts(token, value));
+    dispatch(fetchSubDistricts(value));
   };
 
   const handleSubDistChange = (e, { value }) => {
-    dispatch(fetchVillages(token, value));
+    dispatch(fetchVillages(value));
   };
 
   const optionsDist = districts.map((item) => ({
     key: item.id,
-    text: item.name,
+    text: item.nama,
     value: item.id,
   }));
 
   const optionsSubDist = subDistricts.map((item) => ({
     key: item.id,
-    text: item.name,
+    text: item.nama,
     value: item.id,
   }));
 
   const optionsVillages = villages.map((item) => ({
     key: item.id,
-    text: item.name,
+    text: item.nama,
     value: item.id,
   }));
 
