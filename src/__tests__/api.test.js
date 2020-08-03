@@ -101,7 +101,7 @@ describe("fetchingFromAPI", () => {
         },
       ],
     });
-    expect(mockAxios.get).toHaveBeenCalledTimes(2);
+    expect(mockAxios.get).toHaveBeenCalledTimes(3);
     expect(mockAxios.get).toHaveBeenNthCalledWith(1, `${baseURL}/provinsi`);
     expect(mockAxios.get).toHaveBeenNthCalledWith(
       2,
@@ -109,7 +109,7 @@ describe("fetchingFromAPI", () => {
     );
     expect(mockAxios.get).toHaveBeenNthCalledWith(
       3,
-      "https://x.rajaapi.com/MeP7c5neTOKEN/m/wilayah/kecamatan?idkabupaten=7371"
+      `${baseURL}/kecamatan?id_kota=7371010`
     );
   });
 
@@ -122,7 +122,7 @@ describe("fetchingFromAPI", () => {
           data: [
             {
               id: 7371100007,
-              name: "PAROPO",
+              name: "Paropo",
             },
           ],
         },
@@ -137,30 +137,23 @@ describe("fetchingFromAPI", () => {
       data: [
         {
           id: 7371100007,
-          name: "PAROPO",
+          name: "Paropo",
         },
       ],
     });
-    expect(mockAxios.get).toHaveBeenCalledTimes(5);
-    expect(mockAxios.get).toHaveBeenNthCalledWith(
-      1,
-      "https://x.rajaapi.com/poe"
-    );
+    expect(mockAxios.get).toHaveBeenCalledTimes(4);
+    expect(mockAxios.get).toHaveBeenNthCalledWith(1, `${baseURL}/provinsi`);
     expect(mockAxios.get).toHaveBeenNthCalledWith(
       2,
-      "https://x.rajaapi.com/MeP7c5neTOKEN/m/wilayah/provinsi"
+      `${baseURL}/kota?id_provinsi=73`
     );
     expect(mockAxios.get).toHaveBeenNthCalledWith(
       3,
-      "https://x.rajaapi.com/MeP7c5neTOKEN/m/wilayah/kabupaten?idpropinsi=73"
+      `${baseURL}/kecamatan?id_kota=7371010`
     );
     expect(mockAxios.get).toHaveBeenNthCalledWith(
       4,
-      "https://x.rajaapi.com/MeP7c5neTOKEN/m/wilayah/kecamatan?idkabupaten=7371"
-    );
-    expect(mockAxios.get).toHaveBeenNthCalledWith(
-      5,
-      "https://x.rajaapi.com/MeP7c5neTOKEN/m/wilayah/kelurahan?idkecamatan=7371100"
+      `${baseURL}/kelurahan?id_kecamatan=7371100007`
     );
   });
 });
