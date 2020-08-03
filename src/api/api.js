@@ -8,7 +8,9 @@ export const getProvince = async () => {
 };
 
 export const getDistricts = async (idProv) => {
-  const res = await axios.get(`${baseURL}/kota?id_provinsi=${idProv}`);
+  const res = await axios.get(
+    `${baseURL}/kota_kabupaten?id_provinsi=${idProv}`
+  );
   return await res.data;
 };
 
