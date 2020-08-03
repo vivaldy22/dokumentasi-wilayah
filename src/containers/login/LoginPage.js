@@ -10,7 +10,6 @@ import {
   FormControl,
 } from "@material-ui/core";
 import mySwal from "../../components/MySwal";
-import { getToken } from "../../api/api";
 
 const regexEmail = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
 

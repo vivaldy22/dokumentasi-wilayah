@@ -75,7 +75,7 @@ const Nav = (props) => {
           path="/"
           exact
           render={(props) => {
-            if (sessionStorage.getItem("auth") === "loggedIn") {
+            if (sessionStorage.getItem("token") !== null) {
               onLogin();
             } else {
               return <LoginPage onLogin={onLogin} />;
