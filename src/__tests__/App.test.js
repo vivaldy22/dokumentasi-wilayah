@@ -1,7 +1,7 @@
 import React from "react";
 import App from "../App";
 import { shallow } from "enzyme";
-import Nav from "../containers/Nav";
+import Nav from "../containers/Routes";
 
 const setup = (props = {}, state = null) => {
   const wrapper = shallow(<App {...props} />);

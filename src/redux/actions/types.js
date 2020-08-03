@@ -1,0 +1,4 @@
+export const SET_PROVINCES = "SET_PROVINCES";
+export const SET_DISTRICTS = "SET_DISTRICTS";
+export const SET_SUBDISTRICTS = "SET_SUBDISTRICTS";
+export const SET_VILLAGES = "SET_VILLAGES";

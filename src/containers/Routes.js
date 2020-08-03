@@ -13,7 +13,7 @@ const routes = [
   { id: 2, path: "/provinces", component: ProvincePage },
 ];
 
-const Nav = (props) => {
+const Routes = (props) => {
   const [auth, setAuth] = useState(false);
 
   useEffect(() => {
@@ -88,4 +88,4 @@ const Nav = (props) => {
   );
 };
 
-export default withRouter(Nav);
+export default withRouter(Routes);
