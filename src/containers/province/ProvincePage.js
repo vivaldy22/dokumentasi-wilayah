@@ -5,6 +5,7 @@ import TableProvinces from "./TableProvinces";
 import "./province.css";
 import { Input } from "semantic-ui-react";
 import { fetchProvinces } from "../../redux/actions";
+import Pagination from "../../components/Pagination";
 
 const ProvincePage = () => {
   // const token = sessionStorage.getItem("token");
@@ -38,6 +39,7 @@ const ProvincePage = () => {
         />
       </div>
       <TableProvinces isLoaded={isLoaded} search={search} />
+      {/*<Pagination />*/}
     </div>
   );
 };
