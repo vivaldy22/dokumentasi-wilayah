@@ -3,7 +3,6 @@ import {
   getDistricts,
   getProvince,
   getSubDistricts,
-  getToken,
   getVillage,
 } from "../api/api";
 
@@ -101,15 +100,10 @@ describe("fetchingFromAPI", () => {
         },
       ],
     });
-    expect(mockAxios.get).toHaveBeenCalledTimes(3);
-    expect(mockAxios.get).toHaveBeenNthCalledWith(1, `${baseURL}/provinsi`);
+    expect(mockAxios.get).toHaveBeenCalledTimes(1);
     expect(mockAxios.get).toHaveBeenNthCalledWith(
-      2,
-      `${baseURL}/kota?id_provinsi=73`
-    );
-    expect(mockAxios.get).toHaveBeenNthCalledWith(
-      3,
-      `${baseURL}/kecamatan?id_kota=7371010`
+      1,
+      `${baseURL}/kecamatan?id_kota=7371`
     );
   });
 
@@ -129,7 +123,7 @@ describe("fetchingFromAPI", () => {
       })
     );
 
-    const result = await getVillage("TOKEN", 7371100);
+    const result = await getVillage(7371100);
 
     expect(result).toEqual({
       code: 200,
@@ -141,19 +135,10 @@ describe("fetchingFromAPI", () => {
         },
       ],
     });
-    expect(mockAxios.get).toHaveBeenCalledTimes(4);
-    expect(mockAxios.get).toHaveBeenNthCalledWith(1, `${baseURL}/provinsi`);
+    expect(mockAxios.get).toHaveBeenCalledTimes(1);
     expect(mockAxios.get).toHaveBeenNthCalledWith(
-      2,
-      `${baseURL}/kota?id_provinsi=73`
-    );
-    expect(mockAxios.get).toHaveBeenNthCalledWith(
-      3,
-      `${baseURL}/kecamatan?id_kota=7371010`
-    );
-    expect(mockAxios.get).toHaveBeenNthCalledWith(
-      4,
-      `${baseURL}/kelurahan?id_kecamatan=7371100007`
+      1,
+      `${baseURL}/kelurahan?id_kecamatan=7371100`
     );
   });
 });
